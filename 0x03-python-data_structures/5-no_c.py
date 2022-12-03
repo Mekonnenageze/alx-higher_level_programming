@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 def no_c(my_string):
-    result = []
-    for letter in my_string:
-        if letter != 'c' and letter != 'C':
-            result.append(letter)
-            return ''.join(result)
+    new_str = ''
+    for char in my_string:
+        if char != 'c' and char != 'C':
+            new_str += char
+            return new_str
