@@ -1,25 +1,24 @@
 #!/usr/bin/python3
 """
-This is the "5-test_indentation" module.
-The 5-text_indentation module supplies one function, text_indentation(text).
+Function to replace some characters with '\n\n'
 """
 
 
 def text_indentation(text):
-    """splits a text into lines along "?", ":", "." followed by 2 new lines"""
+    """
+    Prints a text with 2 new lines after some characters.
+    """
+
     if type(text) is not str:
         raise TypeError("text must be a string")
-    flag = 0
-    for a in text:
-        if flag == 0:
-            if a == ' ':
-                continue
-            else:
-                flag = 1
-                if flag == 1:
-                    if a == '?' or a == '.' or a == ':':
-                        print(a)
-                        print()
-                        flag = 0
-                    else:
-                        print(a, end="")
+    tmp = text.replace(".", ".\n\n")
+    tmp = tmp.replace(":", ":\n\n")
+    tmp = tmp.replace("?", "?\n\n")
+    p = tmp.splitlines(True)
+    ls_strip = []
+    for l in p:
+        if l == "\n":
+            ls_strip.append("\n")
+        else:
+            ls_strip.append(l.lstrip())
+    print("".join(ls_strip), end="")
